@@ -1,0 +1,3 @@
+Zadanie 4. Znajdz pid procesu X-serwera5, a nastepnie uzywajac polecenia «pmap» wyswietl zawartosc
+jego przestrzeni adresowej. Zidentyfikuj w niej poszczególne zasoby pamieciowe – tj. stos, sterte, segmenty
+programu, pamiec anonimowa, pliki odwzorowane w pamiec. Nalezy wyjasnic znaczenie kolumn wydruku!

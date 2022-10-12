@@ -1,0 +1,16 @@
+Zadanie 2. Jak jądro systemu reaguje na sytuację kiedy proces staje się sierotą?
+
+W jaki sposób pogrzebać proces, który wszedł w stan zombie? 
+
+Czemu proces nie może sam siebie pogrzebać? Zauważ, że proces
+może, przy pomocy waitpid(2), czekać na zmianę stanu wyłącznie swoich dzieci. 
+
+Co złego mogłoby się stać, gdyby znieść to ograniczenie? Rozważ scenariusze 
+
+(a) dziecko może czekać na zmianę stanu swojego rodzica 
+
+
+(b) wiele procesów oczekuje na zmianę stanu jednego procesu.
+
+Wskazówka: Proces wykonujący w jądrze implementację wywołania systemowego _exit(2) nie może zwolnić stosu jądra,
+na którym się wykonuje. Kto zatem musi to zrobić?

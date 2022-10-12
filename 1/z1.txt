@@ -1,0 +1,251 @@
+Zadanie 1. W systemach uniksowych wszystkie procesy są związane relacją *rodzic-dziecko*. Uruchom pole-
+cenie «ps -eo user,pid,ppid,pgid,tid,pri,stat,wchan,cmd».
+
+
+
+
+
+
+USER         PID    PPID    PGID     TID PRI STAT WCHAN  CMD
+root           1       0       1       1  19 Ss   -      /sbin/init splash
+root           2       0       0       2  19 S    -      [kthreadd]
+root           3       2       0       3  39 I<   -      [rcu_gp]
+root           4       2       0       4  39 I<   -      [rcu_par_gp]
+root           5       2       0       5  39 I<   -      [netns]
+root           7       2       0       7  39 I<   -      [kworker/0:0H-events_highpri]
+root           9       2       0       9  39 I<   -      [kworker/0:1H-events_highpri]
+root          10       2       0      10  39 I<   -      [mm_percpu_wq]
+root          11       2       0      11  19 S    -      [rcu_tasks_rude_]
+root          12       2       0      12  19 S    -      [rcu_tasks_trace]
+root          13       2       0      13  19 S    -      [ksoftirqd/0]
+root          14       2       0      14  19 I    -      [rcu_sched]
+root          15       2       0      15 139 S    -      [migration/0]
+root          16       2       0      16  90 S    -      [idle_inject/0]
+root          18       2       0      18  19 S    -      [cpuhp/0]
+root          19       2       0      19  19 S    -      [cpuhp/1]
+root          20       2       0      20  90 S    -      [idle_inject/1]
+root          21       2       0      21 139 S    -      [migration/1]
+root          22       2       0      22  19 S    -      [ksoftirqd/1]
+root          24       2       0      24  39 I<   -      [kworker/1:0H-events_highpri]
+root          25       2       0      25  19 S    -      [kdevtmpfs]
+root          26       2       0      26  39 I<   -      [inet_frag_wq]
+root          27       2       0      27  19 S    -      [kauditd]
+root          29       2       0      29  19 S    -      [khungtaskd]
+root          30       2       0      30  19 S    -      [oom_reaper]
+root          31       2       0      31  39 I<   -      [writeback]
+root          32       2       0      32  19 S    -      [kcompactd0]
+root          33       2       0      33  14 SN   -      [ksmd]
+root          34       2       0      34   0 SN   -      [khugepaged]
+root          80       2       0      80  39 I<   -      [kintegrityd]
+root          81       2       0      81  39 I<   -      [kblockd]
+root          82       2       0      82  39 I<   -      [blkcg_punt_bio]
+root          83       2       0      83  39 I<   -      [tpm_dev_wq]
+root          84       2       0      84  39 I<   -      [ata_sff]
+root          85       2       0      85  39 I<   -      [md]
+root          86       2       0      86  39 I<   -      [edac-poller]
+root          87       2       0      87  39 I<   -      [devfreq_wq]
+root          88       2       0      88  90 S    -      [watchdogd]
+root          91       2       0      91  19 S    -      [kswapd0]
+root          92       2       0      92  19 S    -      [ecryptfs-kthrea]
+root          94       2       0      94  39 I<   -      [kthrotld]
+root          95       2       0      95  39 I<   -      [acpi_thermal_pm]
+root          97       2       0      97  39 I<   -      [kworker/1:1H-events_highpri]
+root          99       2       0      99  39 I<   -      [vfio-irqfd-clea]
+root         100       2       0     100  19 I    -      [kworker/1:2-events]
+root         102       2       0     102  39 I<   -      [mld]
+root         103       2       0     103  39 I<   -      [ipv6_addrconf]
+root         112       2       0     112  39 I<   -      [kstrp]
+root         115       2       0     115  39 I<   -      [zswap-shrink]
+root         123       2       0     123  39 I<   -      [charger_manager]
+root         162       2       0     162  19 S    -      [napi/eth%d-8193]
+root         163       2       0     163  19 S    -      [napi/eth%d-8194]
+root         164       2       0     164  19 S    -      [scsi_eh_0]
+root         165       2       0     165  39 I<   -      [scsi_tmf_0]
+root         166       2       0     166  19 S    -      [scsi_eh_1]
+root         167       2       0     167  39 I<   -      [scsi_tmf_1]
+root         168       2       0     168  19 S    -      [scsi_eh_2]
+root         169       2       0     169  39 I<   -      [scsi_tmf_2]
+root         170       2       0     170  19 S    -      [scsi_eh_3]
+root         171       2       0     171  39 I<   -      [scsi_tmf_3]
+root         172       2       0     172  19 S    -      [scsi_eh_4]
+root         173       2       0     173  39 I<   -      [scsi_tmf_4]
+root         174       2       0     174  19 S    -      [scsi_eh_5]
+root         175       2       0     175  39 I<   -      [scsi_tmf_5]
+root         206       2       0     206  19 S    -      [jbd2/sda2-8]
+root         207       2       0     207  39 I<   -      [ext4-rsv-conver]
+root         247       1     247     247  20 S<s  -      /lib/systemd/systemd-journald
+root         284       2       0     284  39 I<   -      [ipmi-msghandler]
+root         303       1     303     303  19 Ss   -      /lib/systemd/systemd-udevd
+root         356       2       0     356  39 I<   -      [cfg80211]
+root         357       2       0     357  39 I<   -      [led_workqueue]
+root         376       2       0     376  39 I<   -      [cryptd]
+root         393       2       0     393  39 I<   -      [kworker/u33:2-i915_flip]
+root         399       2       0     399  90 S    -      [card0-crtc0]
+root         400       2       0     400  90 S    -      [card0-crtc1]
+systemd+     624       1     624     624  19 Ss   -      /lib/systemd/systemd-oomd
+systemd+     625       1     625     625  19 Ss   -      /lib/systemd/systemd-resolved
+...
+
+
+
+
+Na wydruku zidentyfikuj:
+- identyfikator procesu, 		PID  - Process ID
+- identyfikator grupy procesów, 	PGID - Process Group ID
+- identyfikator rodzica,  		PPID - Process Parent ID 
+- właściciela procesu. 			
+
+
+Kto jest rodzicem procesu init?
+- Rodzic inita ma PID 0, czyli nie istnieje
+
+
+Wskaż, które z wyświetlonych zadań są wątkami jądra.
+- Wątki Jądra mają literę I oraz ich PPID == 2
+
+
+Jakie jest znaczenie poszczególnych znaków w kolumnie STAT?
+
+Źródło: man ps
+
+PROCESS STATE CODES
+       Here are the different values that the s, stat and state output specifiers (header "STAT" or "S") will display to describe the
+       state of a process:
+
+               D    uninterruptible sleep (usually IO)
+               I    Idle kernel thread
+               R    running or runnable (on run queue)
+               S    interruptible sleep (waiting for an event to complete)
+               T    stopped by job control signal
+               t    stopped by debugger during the tracing
+               W    paging (not valid since the 2.6.xx kernel)
+               X    dead (should never be seen)
+               Z    defunct ("zombie") process, terminated but not reaped by its parent
+
+       For BSD formats and when the stat keyword is used, additional characters may be displayed:
+
+               <    high-priority (not nice to other users)
+               N    low-priority (nice to other users)
+               L    has pages locked into memory (for real-time and custom IO)
+               s    is a session leader
+               l    is multi-threaded (using CLONE_THREAD, like NPTL pthreads do)
+               +    is in the foreground process group
+
+
+Wyświetl drzewiastą reprezentację hierarchii procesów poleceniem pstree – które z zadań są wątkami?
+
+pstree:
+
+systemd-+-ModemManager---2*[{ModemManager}]
+        |-NetworkManager---2*[{NetworkManager}]
+        |-accounts-daemon---2*[{accounts-daemon}]
+        |-acpid
+        |-avahi-daemon---avahi-daemon
+        |-bluetoothd
+        |-colord---2*[{colord}]
+        |-cron
+        |-cups-browsed---2*[{cups-browsed}]
+        |-cupsd
+        |-dbus-daemon
+        |-gdm3-+-gdm-session-wor-+-gdm-wayland-ses-+-gnome-session-b---2*[{gnome-session-b}]
+        |      |                 |                 `-2*[{gdm-wayland-ses}]
+        |      |                 `-2*[{gdm-session-wor}]
+        |      `-2*[{gdm3}]
+        |-gnome-keyring-d---3*[{gnome-keyring-d}]
+        |-irqbalance---{irqbalance}
+        |-2*[kerneloops]
+        |-networkd-dispat
+        |-packagekitd---2*[{packagekitd}]
+        |-polkitd---2*[{polkitd}]
+        |-power-profiles----2*[{power-profiles-}]
+        |-rsyslogd---3*[{rsyslogd}]
+        |-rtkit-daemon---2*[{rtkit-daemon}]
+        |-snapd---12*[{snapd}]
+        |-switcheroo-cont---2*[{switcheroo-cont}]
+        |-systemd-+-(sd-pam)
+        |         |-at-spi2-registr---2*[{at-spi2-registr}]
+        |         |-dbus-daemon
+        |         |-dconf-service---2*[{dconf-service}]
+        |         |-evince---4*[{evince}]
+        |         |-evinced---2*[{evinced}]
+        |         |-evolution-addre---5*[{evolution-addre}]
+        |         |-evolution-calen---8*[{evolution-calen}]
+        |         |-evolution-sourc---3*[{evolution-sourc}]
+        |         |-2*[gjs---4*[{gjs}]]
+        |         |-gnome-session-b-+-at-spi-bus-laun-+-dbus-daemon
+        |         |                 |                 `-3*[{at-spi-bus-laun}]
+        |         |                 |-evolution-alarm---5*[{evolution-alarm}]
+        |         |                 |-gsd-disk-utilit---2*[{gsd-disk-utilit}]
+        |         |                 |-update-notifier---3*[{update-notifier}]
+        |         |                 `-3*[{gnome-session-b}]
+        |         |-gnome-session-c---{gnome-session-c}
+        |         |-gnome-shell-+-Xwayland---2*[{Xwayland}]
+        |         |             |-firefox-+-Isolated Web Co---14*[{Isolated Web Co}]
+        |         |             |         |-Isolated Web Co---13*[{Isolated Web Co}]
+        |         |             |         |-Privileged Cont---13*[{Privileged Cont}]
+        |         |             |         |-Socket Process---4*[{Socket Process}]
+        |         |             |         |-3*[Web Content---9*[{Web Content}]]
+        |         |             |         |-WebExtensions---13*[{WebExtensions}]
+        |         |             |         `-82*[{firefox}]
+        |         |             |-gjs---6*[{gjs}]
+        |         |             `-11*[{gnome-shell}]
+        |         |-gnome-shell-cal---5*[{gnome-shell-cal}]
+        |         |-gnome-terminal--+-bash---pstree
+        |         |                 |-bash---man---pager
+        |         |                 `-3*[{gnome-terminal-}]
+        |         |-goa-daemon---3*[{goa-daemon}]
+        |         |-goa-identity-se---2*[{goa-identity-se}]
+        |         |-gsd-a11y-settin---3*[{gsd-a11y-settin}]
+        |         |-gsd-color---3*[{gsd-color}]
+        |         |-gsd-datetime---3*[{gsd-datetime}]
+        |         |-gsd-housekeepin---3*[{gsd-housekeepin}]
+        |         |-gsd-keyboard---3*[{gsd-keyboard}]
+        |         |-gsd-media-keys---3*[{gsd-media-keys}]
+        |         |-gsd-power---4*[{gsd-power}]
+        |         |-gsd-print-notif---2*[{gsd-print-notif}]
+        |         |-gsd-printer---2*[{gsd-printer}]
+        |         |-gsd-rfkill---2*[{gsd-rfkill}]
+        |         |-gsd-screensaver---2*[{gsd-screensaver}]
+        |         |-gsd-sharing---3*[{gsd-sharing}]
+        |         |-gsd-smartcard---3*[{gsd-smartcard}]
+        |         |-gsd-sound---3*[{gsd-sound}]
+        |         |-gsd-wacom---3*[{gsd-wacom}]
+        |         |-gsd-xsettings---4*[{gsd-xsettings}]
+        |         |-gvfs-afc-volume---3*[{gvfs-afc-volume}]
+        |         |-gvfs-goa-volume---2*[{gvfs-goa-volume}]
+        |         |-gvfs-gphoto2-vo---2*[{gvfs-gphoto2-vo}]
+        |         |-gvfs-mtp-volume---2*[{gvfs-mtp-volume}]
+        |         |-gvfs-udisks2-vo---3*[{gvfs-udisks2-vo}]
+        |         |-gvfsd-+-gvfsd-http---2*[{gvfsd-http}]
+        |         |       |-gvfsd-trash---2*[{gvfsd-trash}]
+        |         |       `-2*[{gvfsd}]
+        |         |-gvfsd-fuse---5*[{gvfsd-fuse}]
+        |         |-gvfsd-metadata---2*[{gvfsd-metadata}]
+        |         |-ibus-portal---2*[{ibus-portal}]
+        |         |-ibus-x11---2*[{ibus-x11}]
+        |         |-nautilus---4*[{nautilus}]
+        |         |-pipewire---{pipewire}
+        |         |-pipewire-media----{pipewire-media-}
+        |         |-pulseaudio---3*[{pulseaudio}]
+        |         |-sh---ibus-daemon-+-ibus-dconf---3*[{ibus-dconf}]
+        |         |                  |-ibus-engine-sim---2*[{ibus-engine-sim}]
+        |         |                  |-ibus-extension----3*[{ibus-extension-}]
+        |         |                  `-2*[{ibus-daemon}]
+        |         |-snap---6*[{snap}]
+        |         |-tracker-miner-f---5*[{tracker-miner-f}]
+        |         |-xdg-desktop-por---5*[{xdg-desktop-por}]
+        |         |-2*[xdg-desktop-por---3*[{xdg-desktop-por}]]
+        |         |-xdg-document-po-+-fusermount3
+        |         |                 `-5*[{xdg-document-po}]
+        |         `-xdg-permission----2*[{xdg-permission-}]
+        |-systemd-journal
+        |-systemd-logind
+        |-systemd-oomd
+        |-systemd-resolve
+        |-systemd-timesyn---{systemd-timesyn}
+        |-systemd-udevd
+        |-thermald---{thermald}
+        |-udisksd---4*[{udisksd}]
+        |-unattended-upgr---{unattended-upgr}
+        |-upowerd---2*[{upowerd}]
+        `-wpa_supplicant

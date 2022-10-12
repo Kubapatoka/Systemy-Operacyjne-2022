@@ -1,0 +1,12 @@
+Zadanie 8. (Pomysłodawca zadania jest Piotr Polesiuk.)
+Rozwiaz problem n hetmanów6 z uzyciem fork(2) i waitpid(2). Gdy w i-tym elemencie tablicy «board»
+przechowywana jest wartosc j znaczy to, ze pozycja i-tego hetmana na szachownicy to (i, j). Majac
+niekonfliktujace ustawienie pierwszych k − 1 hetmanów po kolei startuj n podprocesów z proponowanym
+ustawieniem k-tego hetmana. Podproces, który wykryje konfliktujace ustawienie hetmanów, ma zakonczyc
+swe działanie. W przeciwnym wypadku zachowuje sie jak rodzic dla k + 1 hetmana. Podproces, który uzyska
+prawidłowe ustawienie n hetmanów, ma wydrukowac je na standardowe wyjscie. Procedura «ndselect»
+wraca wielokrotnie z kolejnymi liczbami z zakresu 0...n − 1.
+Linie wydruków plansz z prawidłowymi ustawieniami hetmanów nie moga sie przeplatac. Uwazaj, zeby przez
+przypadek nie zaprogramowac fork bomby7!
+UWAGA! Nalezy wytłumaczyc działanie programu rysujac diagram procesów pokazany na wykładzie.
+6https://pl.

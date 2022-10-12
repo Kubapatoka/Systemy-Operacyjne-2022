@@ -1,0 +1,5 @@
+Zadanie 5. Uzywajac programu «lsof» wyswietl zasoby plikopodobne podpiete do procesu przegladarki
+«firefox». Wyjasnij znaczenie poszczególnych kolumn wykazu, po czym zidentyfikuj pliki zwykłe, katalogi,
+urzadzenia, gniazda (sieciowe lub domeny uniksowej) i potoki. Przekieruj wyjscie z programu «lsof»,
+przed i po otwarciu wybranej strony, odpowiednio do plików «before» i «after». Czy poleceniem «diff -u
+before after» jestes w stanie zidentyfikowac nowo utworzone połaczenia sieciowe?

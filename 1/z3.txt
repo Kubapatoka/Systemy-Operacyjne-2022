@@ -1,0 +1,5 @@
+Zadanie 3. Do czego słuzy system plików proc(5) w systemie Linux? Dla wybranego przez siebie procesu
+o identyfikatorze pid wydrukuj zawartosc katalogu «/proc/pid». Wyswietl plik zawierajacy argumenty programu
+oraz zmienne srodowiskowe. Podaj znaczenie nastepujacych pól pliku «status»: Uid, Gid, Groups,
+VmPeak, VmSize, VmRSS, Threads, voluntary_ctxt_switches, nonvoluntary_ctxt_switches.
+UWAGA! Prowadzacy cwiczenia nie zadowoli sie cytowaniem podrecznika systemowego – trzeba wykazac sie dociekliwoscia!

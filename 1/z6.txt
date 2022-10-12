@@ -1,0 +1,4 @@
+Zadanie 6. Wbudowanym poleceniem powłoki «time» zmierz czas wykonania długo działajacego procesu,
+np. polecenia «find /usr». Czemu suma czasów user i sys (a) nie jest równa real (b) moze byc wieksza
+od real? Poleceniem «ulimit» nałóz ograniczenie na czas wykonania procesów potomnych powłoki tak,
+by limit sie wyczerpał. Uruchom ponownie wybrany program – który sygnał wysłano do procesu?

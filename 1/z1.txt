@@ -3,9 +3,6 @@ cenie «ps -eo user,pid,ppid,pgid,tid,pri,stat,wchan,cmd».
 
 
 
-
-
-
 USER         PID    PPID    PGID     TID PRI STAT WCHAN  CMD
 root           1       0       1       1  19 Ss   -      /sbin/init splash
 root           2       0       0       2  19 S    -      [kthreadd]
@@ -90,17 +87,26 @@ systemd+     625       1     625     625  19 Ss   -      /lib/systemd/systemd-re
 
 
 Na wydruku zidentyfikuj:
-- identyfikator procesu, 		PID  - Process ID
-- identyfikator grupy procesów, 	PGID - Process Group ID
-- identyfikator rodzica,  		PPID - Process Parent ID 
-- właściciela procesu. 			
+- *identyfikator procesu*, 		PID  - Process ID 
+		>unikalny dla każdego procesu
+- *identyfikator grupy procesów*, 	PGID - Process Group ID
+		>każdy proces dziedziczy od swojego rodzica grupę
+		>każdy proces należy tylko do jednej grupy
+		>jeśli tworzymy nową grupę procesów to jej PGID = PID (lider grupy)
+		>służy do grupowania procesów w zadania (job)
+		>można wysłać sygnał do całej grupy
+		>getpgrp() - zwraca grupę obecnego procesu
+		>setpgid() - zmienia grupę procesu (ale to nie takie hop siup)
+- *identyfikator rodzica*,  		PPID - Process Parent ID 
+- *identyfikator właściciela procesu*. 			
 
 
 Kto jest rodzicem procesu init?
+
 - Rodzic inita ma PID 0, czyli nie istnieje
 
 
-Wskaż, które z wyświetlonych zadań są wątkami jądra.
+Wskaż, które z wyświetlonych zadań są *wątkami jądra*.
 - Wątki Jądra mają literę I oraz ich PPID == 2
 
 
@@ -132,7 +138,7 @@ PROCESS STATE CODES
                +    is in the foreground process group
 
 
-Wyświetl drzewiastą reprezentację hierarchii procesów poleceniem pstree – które z zadań są wątkami?
+Wyświetl drzewiastą reprezentację *hierarchii procesów* poleceniem pstree – które z zadań są wątkami?
 
 pstree:
 

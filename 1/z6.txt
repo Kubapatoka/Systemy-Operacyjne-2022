@@ -1,4 +1,43 @@
-Zadanie 6. Wbudowanym poleceniem powłoki «time» zmierz czas wykonania długo działajacego procesu,
-np. polecenia «find /usr». Czemu suma czasów user i sys (a) nie jest równa real (b) moze byc wieksza
-od real? Poleceniem «ulimit» nałóz ograniczenie na czas wykonania procesów potomnych powłoki tak,
-by limit sie wyczerpał. Uruchom ponownie wybrany program – który sygnał wysłano do procesu?
+Zadanie 6. Wbudowanym poleceniem powłoki «time» zmierz *czas wykonania* długo działajacego procesu,
+np. polecenia «find /usr». 
+	> czas wykonania to czas spędzony na wykonywaniu zadania 
+
+time find /usr
+
+real	0m57,140s
+user	0m1,589s
+sys	0m4,683s
+
+
+user - czas CPU spędzony w trybie użytkownika podczas wykonywania procesu przez polecenie time
+
+sys - czas CPU spędzony na wykonywaniu różnych syscall przez kernel, liczony dla konkretnego procesu
+
+real - realny czas od uruchomienia do zakończenia
+
+
+Czemu suma czasów user i sys 
+
+(a) nie jest równa real 
+
+-> w międzyczasie są wykonywane inne procesy więc real może być spory
+
+
+(b) moze byc wieksza od real? 
+
+
+
+
+Poleceniem «ulimit» nałóz *ograniczenie* na czas wykonania procesów potomnych powłoki tak,
+by limit sie wyczerpał. 
+
+	>Czas ograniczenia liczy się jako user+sys, real może przekraczać nasz limit. Jeśli user+sys dotrą do limitu to zabijamy proces.
+
+ulimit -t 1
+
+
+Uruchom ponownie wybrany program – który sygnał wysłano do procesu?
+
+Unicestwiony
+
+Sygnał: SIGXCPU a potem SIGKILL

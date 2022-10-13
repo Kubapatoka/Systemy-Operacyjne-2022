@@ -1,16 +1,36 @@
-Zadanie 2. Jak jądro systemu reaguje na sytuację kiedy proces staje się sierotą?
+Zadanie 2. Jak jądro systemu reaguje na sytuację kiedy proces staje się *sierotą*?
+	>sierota to dziecko bez rodzica
+-przypisuje się im jako rodzica proces init (re-parenting)
+-re-parentingiem zajmuje się kernel
+-wykonuje się kod sieroty (?) 
+-jest zabijana
 
-W jaki sposób pogrzebać proces, który wszedł w stan zombie? 
+W jaki sposób pogrzebać proces, który wszedł w stan *zombie*?
+	>zombie to stan kiedy proces się zakończył ale rodzic z jakiegoś powodu jeszcze go nie zabił
 
-Czemu proces nie może sam siebie pogrzebać? Zauważ, że proces
-może, przy pomocy waitpid(2), czekać na zmianę stanu wyłącznie swoich dzieci. 
+-Rodzic może go pogrzebać za pomocą waitpid(pid) 
 
+Czemu proces nie może sam siebie pogrzebać? 
+
+-Nie dostarczyłby informacji o swoim statusie do rodzica.
+
+
+Zauważ, że proces może, przy pomocy waitpid(2), czekać na zmianę *stanu* wyłącznie swoich dzieci. 
 Co złego mogłoby się stać, gdyby znieść to ograniczenie? Rozważ scenariusze 
+
+	>stan procesu - możliwa sytacja w jakiej jest proces typu Running, sleeping, stopped, zombie, orphan
 
 (a) dziecko może czekać na zmianę stanu swojego rodzica 
 
+-dziecko czeka na rodzica a rodzic na dziecko i sobie czeka i czeka i ... ... ... i czeka
+
 
 (b) wiele procesów oczekuje na zmianę stanu jednego procesu.
+
+-mogłoby to znacznie spowolnić 
+-może jakiś cykl 
+-jeśli proces umrze, rodzic go ubije, to reszta może nie mieć informacji o statusie procesu na który czekają
+
 
 Wskazówka: Proces wykonujący w jądrze implementację wywołania systemowego _exit(2) nie może zwolnić stosu jądra,
 na którym się wykonuje. Kto zatem musi to zrobić?

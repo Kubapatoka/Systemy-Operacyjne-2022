@@ -1,6 +1,7 @@
 Zadanie 1. W systemach uniksowych wszystkie procesy są związane relacją *rodzic-dziecko*. Uruchom pole-
 cenie «ps -eo user,pid,ppid,pgid,tid,pri,stat,wchan,cmd».
 
+	>Proces dziecko jest tworzony na podstawie rodzica (fork()). Dziecko jest prawie identyczne jak rodzic. 
 
 
 USER         PID    PPID    PGID     TID PRI STAT WCHAN  CMD
@@ -89,6 +90,7 @@ systemd+     625       1     625     625  19 Ss   -      /lib/systemd/systemd-re
 Na wydruku zidentyfikuj:
 - *identyfikator procesu*, 		PID  - Process ID 
 		>unikalny dla każdego procesu
+		>używany do nazywania procesu żeby móc coś z nim zrobić (np zabić)
 - *identyfikator grupy procesów*, 	PGID - Process Group ID
 		>każdy proces dziedziczy od swojego rodzica grupę
 		>każdy proces należy tylko do jednej grupy
@@ -98,16 +100,19 @@ Na wydruku zidentyfikuj:
 		>getpgrp() - zwraca grupę obecnego procesu
 		>setpgid() - zmienia grupę procesu (ale to nie takie hop siup)
 - *identyfikator rodzica*,  		PPID - Process Parent ID 
-- *identyfikator właściciela procesu*. 			
-
+		>wskazuje na rodzica (PID rodzica)
+- *właściciel procesu*.			User
+		> właściciel to użytkownik który uruchomił proces i posiada uprawnienia do jego kontrolowania (np zabicia) 			
 
 Kto jest rodzicem procesu init?
 
-- Rodzic inita ma PID 0, czyli nie istnieje
+- Rodzic inita ma PID 0. Init został uruchomiony na starcie
 
 
 Wskaż, które z wyświetlonych zadań są *wątkami jądra*.
-- Wątki Jądra mają literę I oraz ich PPID == 2
+- Wątki Jądra mają literę I oraz ich PPID == 2 
+	PID = 2 [kthreadd]
+	>te wątki wykonują kod jądra
 
 
 Jakie jest znaczenie poszczególnych znaków w kolumnie STAT?
@@ -139,6 +144,9 @@ PROCESS STATE CODES
 
 
 Wyświetl drzewiastą reprezentację *hierarchii procesów* poleceniem pstree – które z zadań są wątkami?
+
+	>struktura rodzic-dziecko formuje hierarchie procesów
+-wątki mają formę n*[{name}] i jest to grupa n wątków
 
 pstree:
 

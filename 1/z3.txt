@@ -1,5 +1,34 @@
-Zadanie 3. Do czego słuzy system plików proc(5) w systemie Linux? Dla wybranego przez siebie procesu
-o identyfikatorze pid wydrukuj zawartosc katalogu «/proc/pid». Wyswietl plik zawierajacy argumenty programu
-oraz zmienne srodowiskowe. Podaj znaczenie nastepujacych pól pliku «status»: Uid, Gid, Groups,
-VmPeak, VmSize, VmRSS, Threads, voluntary_ctxt_switches, nonvoluntary_ctxt_switches.
-UWAGA! Prowadzacy cwiczenia nie zadowoli sie cytowaniem podrecznika systemowego – trzeba wykazac sie dociekliwoscia!
+Zadanie 3. Do czego słuzy system plików proc(5) w systemie Linux? 
+
+-pseudosystem plików ilustrujący strukturę danych jądra. Zazwyczaj jest w katalogu /proc. Służy do pobierania informacji o procesach 
+i wątkach.
+
+
+Dla wybranego przez siebie procesu o identyfikatorze pid wydrukuj zawartosc katalogu «/proc/pid».
+
+
+Wyswietl plik zawierajacy *argumenty programu* oraz *zmienne srodowiskowe*. 
+	>argumenty programu to parametry przekazane do programu podczas wywołania. Są to argc (liczba argumentów oraz nazwa polecenia) 
+oraz argv[] (argumenty wraz z nazwą polecenia)
+
+Argumenty możemy znaleźć w pliku cmdline
+
+	>zmienne środowiskowe to takie zmienne których wartości pochodzą spoza programu, ustawiane są poza programem: nazwane wartości 
+są przechowywane i zarządzane przez powłokę systemową. Każdy proces posiada swój zestaw zmiennych środowiskowych, które dziedziczy po rodzicu. 
+Zmienne środowiskowe znajdują się w pliku environ
+
+
+Podaj znaczenie nastepujacych pól pliku «status»: 
+Uid, 				> przechowuje identyfikator użytkownika. 
+					Rzeczywisty (informacje o użytkowniku który wywołał), 
+					efektywny (info o obecnych uprawnieniach), 
+					zapisany (zapamiętane poprzednie uprawnienia) 
+					system plików (dostęp do plików)
+Gid, 				> to samo tylko dla grupy
+Groups,				> lista grup dziedziczonych po rodzicu, mówią jakie uprawnienia ma proces
+VmPeak, 			> Największy rozmiar VM
+VmSize, 			> Obecny rozmiar VM
+VmRSS, 				> VM Resident Set Size - rozmiar zbioru roboczego procesu 
+Threads, 			> Liczba wątków w procesie zawięrającym ten wątek
+voluntary_ctxt_switches, 	> liczba dobrowolnych zmian kontekstu
+nonvoluntary_ctxt_switches.	> liczba zmian kontekstu wywołanych przez wywłaszczenie

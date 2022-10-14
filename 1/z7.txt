@@ -1,8 +1,19 @@
-Zadanie 7. Napisz program, który bedzie prezentował, ze pliki procesu sa kopiowane przez referencje
-w trakcie wywołania fork(2). W procesie głównym otwórz plik do odczytu open(2). Czy zamkniecie pliku
-close(2) w procesie głównym zamyka plik takze w dziecku? Czy odczyt z pliku read(2) zmienia pozycje
-kursora lseek(2) w drugim procesie? Wyjasnij zachowanie swojego programu!
-Przed kazdym komunikatem diagnostycznym wypisz pid procesu. W drugiej czesci zadania nalezy wydrukowac
-biezaca pozycje kursora pliku przed operacja odczytu z pliku. Nalezy wykorzystac dostarczone funkcje
-opakowujace uniksowe wywołania systemowe z biblioteki libcsapp.
+Zadanie 7. Napisz program, który bedzie prezentował, ze pliki procesu sa *kopiowane przez referencje*
+w trakcie wywołania fork(2). 
+
+	>kopiowanie przez referencję to kopiowanie wskaźnika na obietk a nie obiektu.
+
+W procesie głównym otwórz plik do odczytu open(2). Czy zamkniecie pliku close(2) w procesie głównym zamyka plik takze w dziecku? 
+
+-nie, ponieważ każdy proces ma swój własny file descriptor.
+
+Czy odczyt z pliku read(2) zmienia pozycje kursora lseek(2) w drugim procesie? 
+
+-tak, ponieważ operują na tym samym pliku (kopiowanie przez referencje)
+widać to po wpisaniu  ./fileref open
+
+
+Wyjasnij zachowanie swojego programu! Przed kazdym komunikatem diagnostycznym wypisz pid procesu. 
+W drugiej czesci zadania nalezy wydrukowac biezaca pozycje kursora pliku przed operacja odczytu z pliku. 
+Nalezy wykorzystac dostarczone funkcje opakowujace uniksowe wywołania systemowe z biblioteki libcsapp.
 Wskazówka: Zagadnienie opisano w APUE rozdział 8.3.

@@ -1,0 +1,26 @@
+Zadanie 8. Uzupełnij program «demand» o procedure obsługi sygnału «SIGSEGV». 
+Program ma za zadanie demonstrowac przechwytywanie błedów stron, których nie było w stanie obsłuzyc jadro SO.
+Obsługujemy zakres adresów od «ADDR_START» do «ADDR_END». 
+Pod losowo wybrane wirtualne strony z podanego przedziału zostanie podpieta pamiec wirtualna w trybie tylko do odczytu. 
+Nastepnie program wygeneruje do zadanego przedziału adresów zapisy, które zakoncza sie naruszeniem ochrony pamieci.
+Po wyłapaniu sygnału «SIGSEGV», korzystajac z procedur «mmap_page» i «mprotect_page» odpowiednio
+zmapuj brakujaca strone (bład «SEGV_MAPERR») i odblokuj zapis do strony (bład «SEGV_ACCERR»). 
+Dostep do adresów spoza ustalonego zakresu powinien skutkowac zakonczeniem programu. 
+Nalezy wtedy ustalic własciwy kod wyjscia tak, jakby proces został zabity sygnałem!
+
+1 ...
+2 Fault at rip=0x55cb50d54389 accessing 0x10003fc0! Make page at 0x10003000 writable.
+3 Fault at rip=0x55cb50d54389 accessing 0x10007bb0! Map missing page at 0x10007000.
+4 ...
+5 Fault at rip=0x55cb50d5439c accessing 0x10010000! Address not mapped - terminating!
+
+W procedurze obsługi sygnału mozna uzywac tylko procedur wielobieznych (ang. reentrant) – sprawdz
+w podreczniku ich liste. 
+Mozesz wykorzystac procedure «safe_printf», bedaca okrojona wersja «printf».
+Czemu mozna ja bezpiecznie wywołac w wnetrza «sigsegv_handler»?
+
+Adres powodujacy bład strony i rodzaj błedu znajdziesz w argumencie «sigsegv_handler» o typie
+«siginfo_t», który opisano w podreczniku sigaction(2). 
+
+Wskaznik instrukcji, która spowodowała bład strony, mozna przeczytac ze struktury przechowujacej kontekst procesora «uc->uc_mcontext». 
+Odpowiednie definicje znajduja sie w pliku nagłówkowym «/usr/include/x86_64-linux-gnu/sys/ucontext.h».

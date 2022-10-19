@@ -1,0 +1,8 @@
+Zadanie 2. Wyjasnij róznice w tworzeniu procesów w systemie Linux (§10.3.3) i WinNT (§11.4.3). 
+
+Naszkicuj przebieg najwazniejszych akcji podejmowanych przez jadro w trakcie obsługi funkcji fork(2) i execve(2).
+
+Załózmy, ze system posiada wywołanie spawn, o takich samych argumentach jak execve. Zastepuje ono pare
+wywołan fork i execve, a realizuje takie samo zadanie. Dlaczego w takim przypadku mielibysmy problemy
+z dodaniem do powłoki obsługi *przekierowania* standardowego wejscia/wyjscia odpowiednio z/do pliku albo
+łaczenia dowolnych procesów *potokami*?

@@ -1,0 +1,11 @@
+Zadanie 7. Uzupełnij program «cycle.c», w którym procesy graja w piłke przy pomocy sygnału «SIGUSR1».
+Proces główny tworzy n dzieci. 
+Kazde z nich czeka na piłke, a po jej odebraniu podaje ja do swojego starszego brata. 
+Zauwaz, ze najstarszy brat nie zna swojego najmłodszego rodzenstwa, ale zna je ojciec –
+wiec nalezy go wciagnac do gry! 
+Niech tata rozpocznie gre rzucajac piłke do najmłodszego dziecka. 
+Kiedy znudzi Ci sie obserwowanie procesów grajacych w piłke mozesz nacisnac «CTRL+C» co wysle «SIGINT» do całej rodziny. 
+Mozesz wprowadz do zabawy dodatkowa piłke wysyłajac sygnał «SIGUSR1» poleceniem «kill». 
+Czy piłki ostatecznie skleja sie w jedna? 
+W rozwiazaniu nalezy wykorzystac sigprocmask(2), sigsuspend(2) i kill(2).
+UWAGA! Uzycie funkcji sleep(3) lub podobnych do własciwego uszeregowania procesów jest zabronione!

@@ -1,0 +1,10 @@
+Zadanie 3. Na podstawie dokumentacji fork(2) (§8.3) i execve(2) (§8.10) wymien najwazniejsze zasoby
+procesu, które sa 
+(a) dziedziczone przez proces potomny 
+
+(b) przekazywane do nowego programu załadowanego do przestrzeni adresowej. 
+
+
+Czemu przed wywołaniem fork nalezy opróznic bufory biblioteki stdio(3)? 
+
+Co jadro robi w trakcie wywołania execve z konfiguracja *zainstalowanych* procedur obsługi sygnałów?

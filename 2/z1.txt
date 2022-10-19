@@ -1,0 +1,12 @@
+Zadanie 1. Na podstawie rysunku 4.15 z §4.6 przedstaw *stany procesu* w systemie Linux. 
+
+Podaj akcje albo zdarzenia wyzwalajace zmiane stanu. 
+
+Które przejscia moga byc rezultatem działan podejmowanych przez: 
+jadro systemu operacyjnego, 
+kod sterowników, 
+proces uzytkownika? 
+
+Wyjasnij róznice miedzy snem przerywalnym i nieprzerywalnym. 
+
+Czy proces moze zablokowac lub zignorowac sygnał «SIGKILL» lub «SIGSEGV»?

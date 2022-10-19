@@ -1,0 +1,7 @@
+Zadanie 5. Na podstawie kodu zródłowy sinit.c1 opowiedz jakie zadania pełni minimalny program rozruchowy
+sinit. 
+
+Jakie akcje wykonuje pod wpływem wysyłania do niego sygnałów wymienionych w tablicy «sigmap»?
+
+
+Do czego słuza procedury sigprocmask(2) i sigwait(3)? W jaki sposób grzebie swoje dzieci?

@@ -1,0 +1,13 @@
+Zadanie 4. Uruchom program «xeyes» po czym uzyj na nim polecenia «kill», «pkill» i «xkill».
+
+Który sygnał jest wysyłany domyslnie? 
+
+Przy pomocy kombinacji klawiszy «CTRL+Z» wyslij «xeyes» sygnał «SIGTSTP», a nastepnie wznów jego wykonanie. 
+
+Przeprowadz inspekcje pliku «/proc/pid/status» i wyswietl maske *sygnałów oczekujacych* na dostarczenie. 
+
+Pokaz jak bedzie sie zmieniac, gdy bedziemy wysyłac wstrzymanemu procesowi kolejno: «SIGUSR1», «SIGUSR2», «SIGHUP» i «SIGINT». 
+
+Co opisuja pozostałe pola pliku «status» dotyczace sygnałów? 
+
+Który sygnał zostanie dostarczony jako pierwszy po wybudzeniu procesu?

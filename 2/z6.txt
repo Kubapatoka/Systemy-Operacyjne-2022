@@ -1,0 +1,17 @@
+Zadanie 6. Uzupełnij program «reaper.c» prezentujacy powstawanie sierot. 
+Proces główny przyjmuje role zniwiarza (ang. reaper) przy uzyciu prctl(2). 
+Przy pomocy procedury «spawn» utwórz kolejno procesy syna i wnuka. 
+Nastepnie osieroc wnuka konczac działanie syna. 
+Uruchom podproces wywołujacy polecenie «ps», aby wskazac kto przygarnał sierote – przykład ponizej (zwróc uwage na numery grup procesów):
+
+1 PID PPID PGRP STAT CMD
+2 24886 24643 24886 S+ ./reaper (main)
+3 24888 24886 24887 S ./reaper (grandchild)
+4 24889 24886 24886 R+ /usr/bin/ps -o pid,ppid,pgrp,stat,cmd
+
+Po udanym eksperymencie nalezy zabic wnuka sygnałem «SIGINT», a nastepnie po nim posprzatac drukujac
+jego kod wyjscia. 
+Wysłanie «SIGINT» do procesu głównego jest zabronione! 
+Zauwaz, ze proces główny nie zna numeru pid wnuka. 
+W rozwiazaniu nalezy wykorzystac setpgid(2), pause(2), waitpid(2) i kill(2).
+UWAGA! Uzycie funkcji sleep(3) lub podobnych do własciwego uszeregowania procesów jest zabronione!

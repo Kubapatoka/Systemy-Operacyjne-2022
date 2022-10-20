@@ -6,11 +6,16 @@ Linux:
 Windows:
   > Wywoływana jest procedura CreateProcess, która jako argument przyjmuje nazwę pliku wykonywalnego. Procedura ta tworzy zupełnie nowy proces (nie klonuje). Stworzony proces (dziecko) nie otrzymuje kopii pamięci swojego rodzica. 
 
-Naszkicuj przebieg najwazniejszych akcji podejmowanych przez jadro w trakcie obsługi funkcji fork(2) i execve(2).
-
+Naszkicuj przebieg najwazniejszych akcji podejmowanych przez jadro w trakcie obsługi funkcji fork(2) i execve(2). Tanenbaum: 10.3.3
 
 
 Załózmy, ze system posiada wywołanie spawn, o takich samych argumentach jak execve. Zastepuje ono pare
 wywołan fork i execve, a realizuje takie samo zadanie. Dlaczego w takim przypadku mielibysmy problemy
 z dodaniem do powłoki obsługi *przekierowania* standardowego wejscia/wyjscia odpowiednio z/do pliku albo
 łaczenia dowolnych procesów *potokami*?
+
+
+    > przekierowanie to polecenie zmiana miejsca czytania/zapisywania z std i/o na plik. (> lub >>)
+    > potok (|) przekierowanie wyniku jednego procesu do drugiego (na wejście)
+    
+Jaki jest problem? Procesy powstałe w wyniku spawn miały by już ustalone wypisywanie (pobieranie) danych, a napotkane znaki | (> >>) nie były by możliwe do obsłużenia. Inaczej: procesy nie miały by współdzielonej pamięci na przekazanie danych. 

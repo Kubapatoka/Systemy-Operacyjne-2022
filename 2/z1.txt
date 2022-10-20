@@ -1,6 +1,30 @@
 Zadanie 1. Na podstawie rysunku 4.15 z §4.6 przedstaw *stany procesu* w systemie Linux. 
+    > stan wykonania procesu
+    
+  Stany procesu: Running (Ready and Executing), Interruptible, Uninterraptible, Stopped, Zombie
+
+  Ready - proces załadowany do pamięci, oczekuje na wykonanie przez CPU
+
+  Executing - proces będący bieżąco wykonywany (a dokładniej jego instrukcje)
+ 
+  Interruptible - sen przerywalny to stan procesu, w którym proces jest zablokowany, jednak oczekuje na zdarzenie takie jak koniec operacji I/O, dostępność zasobu lub sygnał z innego procesu
+
+  Uninterruptible - sen nieprzerywalny to stan procesu, w którym proces jest zablokowany i nie obsługuje żadnych sygnałów
+
+  Stopped - proces zatrzymany  (np. proces został zatrzymany w celu debugowania), może zostać wznowiony przez inny proces.
+
+  Zombie - proces zakończony, jednak dalej znajduje się w tablicy procesów i oczekuje na pochówek przez rodzica
 
 Podaj akcje albo zdarzenia wyzwalajace zmiane stanu. 
+  
+   Ready -> Executing = zaplanowanie wykonania procesu przez scheduler - działanie jądra systemu operacyjnego
+   Executing -> Zombie =  dobrowolne zakończenie się procesu przez exit() lub 
+                          zamknięcie przez system w przypadku deadlocka lub 
+                          otrzymanie sygnału SIGKILL lub SIGTERM lub 
+                          błąd I/O (sterownik urządzenia)
+   Executing -> (un)interruptible = wydarzenie I/O wybudzane przez jądro lub
+                                    sygnał (tylko w przypadku interruptible sleep)
+    Stopped -> Ready = otrzymanie sygnału SIGSTOP lub SIGCONT od procesu użytkownika
 
 Które przejscia moga byc rezultatem działan podejmowanych przez: 
 jadro systemu operacyjnego, 
@@ -8,5 +32,16 @@ kod sterowników,
 proces uzytkownika? 
 
 Wyjasnij róznice miedzy snem przerywalnym i nieprzerywalnym. 
+  -przerywalny może zostać wybudzony przez sygnał. Nieprzerywalny nie obsługuje sygnałów.
 
 Czy proces moze zablokowac lub zignorowac sygnał «SIGKILL» lub «SIGSEGV»?
+
+Zablokowanie sygnału - niedostarczenie go do procesu aż do momentu odblokowania go przez system operacyjny. Proces blokuje sygnał poprzez użycie funkcji sigprocmask.
+(slajdy 26-27 wykład 2)
+
+Zignorowanie sygnału - sytuacja, w której nie została zdefiniowana procedura obsługi konkretnego sygnału.
+
+Sygnału SIGKILL nie da się zablokować, a zignorowanie tego sygnału spowoduje zabicie procesu.
+
+SIGSEGV - można zablokować ale lepiej tego nie robić (przy zablokowanym proces wraca do miejsca w kodzie i znów wysyła sygnał do momentu aż jądro odblokuje sygnał)
+

@@ -1,6 +1,14 @@
 Zadanie 2. Wyjasnij róznice w tworzeniu procesów w systemie Linux (§10.3.3) i WinNT (§11.4.3). 
 
+Linux:
+  > Obszar użytkownika jest tworzone i wypełniane w dużej części na podstawie zawartości odpowiednich struktur procesu rodzica. Proces potomny uzyskuje identyfikator PID, własną mapę pamięci oraz współdzielony dostęp do plików swojego rodzica. Ustawiane są rejestry nowego procesu, a proces staje się gotowy do wykonania.
+  
+Windows:
+  > Wywoływana jest procedura CreateProcess, która jako argument przyjmuje nazwę pliku wykonywalnego. Procedura ta tworzy zupełnie nowy proces (nie klonuje). Stworzony proces (dziecko) nie otrzymuje kopii pamięci swojego rodzica. 
+
 Naszkicuj przebieg najwazniejszych akcji podejmowanych przez jadro w trakcie obsługi funkcji fork(2) i execve(2).
+
+
 
 Załózmy, ze system posiada wywołanie spawn, o takich samych argumentach jak execve. Zastepuje ono pare
 wywołan fork i execve, a realizuje takie samo zadanie. Dlaczego w takim przypadku mielibysmy problemy

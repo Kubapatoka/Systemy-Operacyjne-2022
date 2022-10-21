@@ -1,13 +1,23 @@
 Zadanie 4. Uruchom program «xeyes» po czym uzyj na nim polecenia «kill», «pkill» i «xkill».
 
 Który sygnał jest wysyłany domyslnie? 
+  -man kill > TERM
+  -man pkill > SIGTERM
+  -man xkill > sekcja caveats (zastrzeżenia)
 
 Przy pomocy kombinacji klawiszy «CTRL+Z» wyslij «xeyes» sygnał «SIGTSTP», a nastepnie wznów jego wykonanie. 
 
 Przeprowadz inspekcje pliku «/proc/pid/status» i wyswietl maske *sygnałów oczekujacych* na dostarczenie. 
+    > Sygnały oczekujące to sygnały, których dostarczenie jest wstrzymane do momentu wyjścia przez proces z nieprzerywalnego snu.
 
 Pokaz jak bedzie sie zmieniac, gdy bedziemy wysyłac wstrzymanemu procesowi kolejno: «SIGUSR1», «SIGUSR2», «SIGHUP» i «SIGINT». 
 
 Co opisuja pozostałe pola pliku «status» dotyczace sygnałów? 
 
+SigQ - liczba zakolejkowanych sygnałów dla real user ID / limit zakolejkowanych sygnałów dla tego procesu,
+SigPnd, ShdPnd - liczba sygnałów oczekujących na wątek oraz na cały proces,
+SigBlk, SigIgn, SigCgt - maski sygnałów blokowanych, ignorowanych oraz złapanych.
+
 Który sygnał zostanie dostarczony jako pierwszy po wybudzeniu procesu?
+
+Rozłączenie -SIGHUP

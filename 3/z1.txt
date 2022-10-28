@@ -1,0 +1,25 @@
+Zadanie 1. Zaprezentuj sytuację, w której proces zostanie *osierocony*.
+	>osierocony tzn. stracił rodzica. 
+
+Uruchom powłokę w nowej instancji emulatora terminala przy pomocy polecenia «xterm -e ’bash -i’». 
+  >xterm -e 'bash -i' &
+  >kill -SIGKILL PID 
+  >ps -eo user,pid,ppid,pgid,tid,pri,stat,wchan,cmd
+
+W nowej powłoce wystartuj «sleep 1000» jako zadanie *drugoplanowe* i sprawdź, kto jest jego rodzicem.
+	>takie które chodzi w tle, używamy & lub  a następnie bg
+	>jego rodzicem jest bash -i, a dziadkiem xterm czyli emulator terminala 
+
+Poleceniem «kill» wyślij sygnał «SIGKILL» do uruchomionej wcześniej powłoki i sprawdź, kto stał się nowym rodzicem procesu «sleep».
+	>rodzicem stał się system
+
+Zauważ, że powłoka jest *liderem sesji*. Co się dzieje z *sesją*, która utraci *terminal sterujący*? 
+	>Lider sesji jest najczęściej proces powłoki, tworzy sesję i może podpiąć terminal sterujący
+	>Sesja to pewna liczba grup procesów podłączonych do tego samego terminala sterującego
+	>Terminal sterujący - należy do jednej sesji, sesja nie musi mieć takiego terminala(np. serwer). Można z niego wysyłać sygnały i kontaktować się z procesami.
+	>Jeśli sesja utraci terminal sterujący, to lider sesji decyduje co się stanie. (np. procesy przeniosą się do tła)
+
+Przeprowadź eksperyment wysyłając «SIGKILL» do emulatora terminala zamiast do powłoki.
+	>procesy pod daną powłoką zostaną zabite
+
+Wskazówka: Obserwuj interakcję systemu z powłoką przy pomocy polecenia «strace -e trace=signal -p ...».

@@ -1,0 +1,24 @@
+Zadanie 2. Zapoznaj się z paragrafami „Canonical Mode Input Processing”, „Special Characters” i „Writing
+Data and Output Processing” podręcznika termios(4). 
+
+Jak zachowuje się sterownika terminala działającego w trybie kanonicznym? 
+	-W trybie kanonicznym każde wczytanie inputu wymaga wczytania całej linii naraz, dopiero po odczytaniu znaku kończącego linię (\n, EOL, EOF) input jest przekazywany do programu. 
+ 	-Włączone jest domyślnie echo
+
+Posługując się rysunkiem [1, 62-1] wytłumacz w jaki sposób przetwarza on znaki
+(w tym kody sterujące) wchodzące do *kolejki wejściowej* i *kolejki wyjściowej*.
+	-Jeśli echo włączone, przekazuje je do kolejki wyjściowej (chcemy widzieć co piszemy)
+	-Rozmiar MAX_INPUT jest skończony, jeśli ją zapełnimy zachowanie systemu zależy od implementacji.
+	-Jest jeszcze limit MAX_CANON - maks liczba bajtów w kanonicznym inpucie 
+	-Jeśli output nam się zapełni to jądro usypia wpisywanie do niego
+	-Znaki z IQ idą do OQ (echo) i do procesu
+	-Process wpisuje w OQ
+	-OQ wypisuje na urządzeniu terminala
+	-IQ pobiera z urządzenia terminala  
+
+Jak konfigurację terminala powinien zmienić program na czas wpisywania hasła przez użytkownika? 
+	-należy wyłączyć echo żeby hasło nie było widoczne.
+
+Czemu edytory takie jak vi(1) konfigurują sterownik terminala do pracy w trybie niekanonicznym?
+	-żeby można było ich używać xD, tzn żeby można było robić w tekście poprawki, używać kursora.
+	-żeby Ctr+C miało inne znaczenie (a nie przerwanie pracy edytora tekstu) 

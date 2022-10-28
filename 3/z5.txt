@@ -1,0 +1,26 @@
+Zadanie 5. Mając na uwadze bieżącą konfigurację sterownika terminala wykonaj następujące polecenia:
+
+1. Wstrzymaj zadanie pierwszoplanowe «sleep 1000» i przy pomocy wbudowanego polecenia powłoki
+«bg» przenieś to zadanie do wykonania w tle. Jaki sygnał został użyty do wstrzymania zadania?
+		>SIGSTP do wstrzymania, SIGCONT do wznowienia
+
+2. Uruchom «find /». W trakcie jego działania naciśnij na przemian kilkukrotnie kombinację klawiszy
+«CTRL+S» oraz «CTRL+Q». Czemu program zatrzymuje się i wznawia swoją pracę, skoro sterownik
+terminala nie wysyłał do niego żadnych sygnałów?
+	>brakuje miejsca w kolejce wyjściowej na wypisywane znaki, wieć proces find / nie może kontynować pracy, czeka na miejsce.
+
+3. Uruchom w powłoce «bash» polecenie «cat - &». Czemu zadanie zostało od razu wstrzymane? Jaki
+sygnał otrzymało? Zakończ to zdanie wbudowanym poleceniem powłoki «kill».
+	>Wydaje mi się że zostało zatrzymane z powodu braku dostępu do terminala (bg) 
+	>Sygnał SIGSTP
+	>Użycie - w miejscu nazwy pliku jest postrzegane przez cat jako synonim do stdin, przez co program zostaje natychmiastowo wstrzymany, jako że nic nie może się wtedy znależć w stdin.
+	>SIGTTIN
+
+4. Porównaj działanie polecenia «cat /etc/shells &» przed i po zmianie konfiguracji terminala polece-
+niem «stty tostop». Jaki efekt ma włączenie flagi «tostop» na zachowanie sterownika terminala?
+	>tostop blokuje wypisywanie w background. -tostop proces jest zatrzymywany, tostop - działa
+
+5. Wykonaj polecenie «stty -echoctl». Wyjaśnij co zmieniło się w konfiguracji terminala i zaprezentuj
+na przykładzie programu «cat» pokaż jak zmieniło się przetwarzanie znaków sterujących.
+	>wyłącza obługę kursora i funkcyjnych
+

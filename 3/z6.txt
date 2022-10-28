@@ -1,0 +1,19 @@
+Zadanie 6. Procedury setjmp(3) i longjmp(3) z biblioteki standardowej języka C służą do wykonywania
+nielokalnych skoków. Uproszczone odpowiedniki tych procedur znajdują się w pliku «libcsapp/Setjmp.s»,
+a definicja «Jmpbuf» w pliku «include/csapp.h». 
+
+Wyjaśnij co robią te procedury, a następnie przeprowadź uczestników zajęć przez ich kod. 
+	>Zastępują poniekąd returna, pozwalają przechodzić do innej procedury bez zwracania wartości
+	>setjmp ustala miejsce i zapamiętuje kontekst programu w jmp_buf
+	>longjmp po prostu wraca w te miejsca
+	>setjmp podczas pierwszego zawołania zwraca zero a gdy dojdziemy tam longjmp-em to zwraca nie zero
+	>longjmp nigdy nie wraca
+
+
+Dlaczego «Jmpbuf» nie przechowuje wszystkich rejestrów procesora? 
+	-Jmpbuf nie przechowuje wszystkich rejestrów procesora, gdyż jest to funkcja taka jak każda inna, dlatego może odrzucić rejestry caller-saved, które przechowują wartości tymczasowe. Dzięki temu nie trzeba ich zapisywać i przywracać
+
+Czemu «Longjmp» zapisuje na stos wartość przed wykonaniem instrukcji «ret»?
+	-Żeby było wiadomo którą instrukcje wykonać po powrocie
+
+

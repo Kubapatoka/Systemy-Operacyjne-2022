@@ -1,0 +1,30 @@
+Zadanie 3. Wyświetl konfigurację terminala przy pomocy polecenia «stty -a».
+
+
+
+Wskaż znaki, które sterownik terminala: 
+zamienia na sygnały związane z *zarządzaniem zadaniami*, 
+	>intr - wysyła sygnał przerwania
+	>quit - wysyła sygnał zamknięcia
+	>swtch - włącza inną warstwę powłoki
+	>start - wznawia wyświetlanie 
+	>stop - zatrzymuje wyświetlanie
+	>susp - wysyła sygnał stop
+
+
+służą do *edycji wiersza*. 
+	>erase - backspace
+	>werase - kasuje ostatnie wprowadzone słowo
+	>eof - wysyła znak końca wejścia (pliku)
+	>eol - wysyła znak końca lini
+	>eol2 - tcw
+	>rprnt - powtarza bieżący wiersz
+	>lnext - wprowadza kolejny znak w cudzysłowie
+
+
+
+Program może zostać poinformowany o zmianie rozmiaru *okna terminala*. W tym celu musi zainstalować procedurę obsługi sygnału – którego?
+	-zmianę rozmiaru okna robimy sygnałem SIGWINCH, (wysyłany do procesu w foreground oraz terminala) 
+
+Jaką procedurą można wczytać nowy rozmiar okna?
+	-stty cols X rows Y 

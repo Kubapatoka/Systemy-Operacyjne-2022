@@ -1,0 +1,11 @@
+Zadanie 4. *Urządzenie terminala* zajmuje się interpretacją znaków i sekwencji sterujących przychodzących
+od sterownika terminala, oraz przetwarzaniem zdarzeń od użytkownika, które zostają zamienione na znaki
+lub sekwencje znaków, a następnie wysłane do sterownika terminala. 
+Posługując się poleceniem 
+«echo -e ’sterujacy’; read» 
+zaprezentuj działanie znaków sterujących oraz sekwencji «CSI». 
+
+Uruchom polecenie «cat» i sprawdź jak zachowuje się naciśnięcie klawiszy funkcyjnych i kursora. 
+
+Czemu w tym przypadku zachowanie programu «cat» jest inne niż powłoki poleceń?
+	- obsługują inne sygnały? Np.  zabija cat a echa nie. (ew. na odwrót)

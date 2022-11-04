@@ -1,0 +1,4 @@
+Skrypt uruchomiony 2022-11-03 22:22:49+01:00 [COMMAND="dash" TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="80" LINES="24"]
+$ ext it 42
+
+Skrypt wykonany 2022-11-03 22:24:19+01:00 [KOD_WYJŚCIA="42"]

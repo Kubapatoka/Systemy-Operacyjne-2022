@@ -27,4 +27,4 @@ Program może zostać poinformowany o zmianie rozmiaru *okna terminala*. W tym c
 	-zmianę rozmiaru okna robimy sygnałem SIGWINCH, (wysyłany do procesu w foreground oraz terminala) 
 
 Jaką procedurą można wczytać nowy rozmiar okna?
-	-stty cols X rows Y 
+	-ioctl 

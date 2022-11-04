@@ -8,4 +8,4 @@ zaprezentuj działanie znaków sterujących oraz sekwencji «CSI».
 Uruchom polecenie «cat» i sprawdź jak zachowuje się naciśnięcie klawiszy funkcyjnych i kursora. 
 
 Czemu w tym przypadku zachowanie programu «cat» jest inne niż powłoki poleceń?
-	- obsługują inne sygnały? Np.  zabija cat a echa nie. (ew. na odwrót)
+	- jest inny odbiorca sygnału, albo powłoka albo cat. Np.  stopuje Cat a powłokę nie
